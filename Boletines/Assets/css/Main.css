@@ -1,0 +1,206 @@
+/* paleta de colores de referencia
+Rosa medio oscuro: #C6426E
+Morado: #642B73
+Negro: #999
+Gris: #f5f5f5
+Rosa clarito: #d500f9
+*/
+
+html {
+  /*muestra en css la fuente personalizada */
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #d500f9;
+} /*no hay linea (recomendado), esto para que los links de "ver mas" no esten subrayados*/
+
+img {
+  max-width: 100%;
+} /*esto me permite que la imagen quede tamaño fijo*/
+
+a:hover {
+  opacity: 0.8;
+} /*reduce la opacidad (Pseudo Clase)*/
+
+.title {
+  text-transform: uppercase;
+  text-align: center; /*centra el texto*/
+} /*el titulo estara en mayus*/
+
+/* este nos permite generar un fondo muy op */
+.container {
+  background: #f00000; /* respaldo (fondo solido) */
+  background: -webkit-linear-gradient(
+    to right,
+    #dc281e,
+    #f00000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #dc281e,
+    #f00000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh; /*abarcar todos los elementos de la pantalla*/
+  display: flex; /*los nodos/elementos dentro de este contenedor adoptan su posicion como herramienta y de posicionamiento delayout flexbox*/
+  align-items: center; /*centra de forma alineada los items*/
+  justify-content: center; /*alinea elementos en el centro del contenedor*/
+}
+
+.content {
+  /*esto abarca 960x500 de la pantalla y lo pone de color blanco*/
+  max-width: 960px;
+  width: 100%;
+  height: 80vh;
+  background-color: white;
+  /*box-shadow: diferenciaHorizontal diferenciaVertical desenfoque amplitud color;*/
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  position: relative; /*el elemento se ve mejor con este padding*/
+  overflow: scroll; /*asi no se desborda el texto*/
+}
+
+.content {
+  padding: 1em;
+}
+td {
+  display: block;
+  width: 100%;
+}
+td:nth-of-type(1) {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #642b73;
+} /*nos permite seleccionar un elemento basado en su posicion cuando esta al lado de otras etiquetas de su mismo tipo*/
+th {
+  display: none;
+}
+
+.actions {
+  /*mueve a la x de la izquierda  ala derecha*/
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.close {
+  /*crea el circulo que rodea a la x*/
+  height: 40px;
+  width: 40px;
+  color: white;
+  border-radius: 50%;
+  background-color: #642b73;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paragraph {
+  line-height: 1.8em;
+  font-weight: 500; /*fuente delgada(prestar atencion a la fuente personalizada-->300,500,700)*/
+} /*se puede usar em,px,cm,etc (sirve para dar un espacio entre parrafos/oraciones)*/
+
+.fa-star,
+.fa-star-half-alt {
+  color: #ffc400;
+} /*las estrellas son de color amarillo*/
+
+.table {
+  width: 100%; /*ocupa todo el ancho*/
+  border-spacing: 0; /*el espacio entre los bordes no existe*/
+}
+
+.table td,
+.table th {
+  /*, : significa que se declaran 2 selectores separados*/
+  padding: 1em;
+  text-align: left;
+} /*esto permite respirar a la tabla (desaparecen los bordes y estan mas separados uno del otro)*/
+
+.table tr:nth-child(even) {
+  background-color: #c6426e;
+} /*las filas pares se pintaran de color */ /*odd:impar/even:par*/
+
+.title-item {
+  /*border-bottom-style: solid; 
+  border-width: 2px;
+  border-color: #C6426E;*/ /*define una linea continua como parte del borde el solid*/
+  font-size: 2em; /*tamaño de la fuente*/
+  border-bottom: solid 2px #c6426e; /*ShortHand Properties*/
+  padding: 1em; /*separo el titulo del borde*/
+  /*padding: (para 4 padding o margin) arriba derecha abajo izquierda;
+   padding: (para 2 valores) arriba/abajo derecha/izquierda;
+  */
+  text-transform: uppercase;
+}
+
+.address {
+  font-weight: bold; /*letras mas gruesas*/
+  color: #642b73;
+  font-size: 1.2em;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+.main-image {
+  float: left; /*texto fluje hacia la derecha*/
+  margin-right: 1em; /*evita que este pegada al texto*/
+  height: 250px;
+}
+
+.position {
+  /*genera el cuadrado  que rodea el 1*/
+  background-color: #c6426e;
+  color: white;
+  padding: 0.7em;
+  border-radius: 4px;
+  margin-right: 0.5em; /*el espacio suficiente entre el 1 y el titulo*/
+}
+
+@media (min-width: 900px) {
+  /*para que se vea en pantallas grandes*/
+  th {
+    display: table-cell;
+  }
+  td {
+    width: auto;
+    display: table-cell;
+  }
+  td:nth-of-type(1) {
+    font-size: 1em;
+  }
+  .content {
+    padding: 1.8em;
+  }
+}
+
+@media (max-width: 500px) {
+  .content {
+    height: 500px;
+  } /*Media Queries,si supera los 500 px de pantalla se activa*/
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*
+selectores dentro de style (porque son de css),el .red es de clase y se puede poner varios atributos a la misma clase
+.red {
+  height: 200px;
+  width: 100px;
+  background-color: red;
+}
+el tercer selector es por id (es de tipo unico); solo se puede poner un solo atributo,no se permite 2 id para la misma clase
+#boton-pago{
+    background-color: yellow;
+}
+*/
+
+/*esto nos permite crear un borde entre las tablas(una estructuracion) 
+td {
+  border: solid 1px;
+}
+*/
